@@ -22,10 +22,9 @@ lc1: c1
 	. c1/env.sh start 1234
 sc1:
 	. c1/env.sh stop
-ic1:
-	. c1/env.sh info
 clean:
 	rm -fr c1 he* pid
+	find . -name \*.pyc | xargs rm
 	tree .
 realclean: clean
 	rm -fr .ve?
