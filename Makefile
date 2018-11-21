@@ -15,7 +15,7 @@ env:
 	virtualenv -p python3 .ve3
 	.ve3/bin/pip install -r requirements.txt
 c1:
-	mkdir -p c1/g c1/t c1/n
+	mkdir -p c1/g c1/t c1/n c1/d
 	cp profile/* c1
 	tree c1
 lc1: c1
