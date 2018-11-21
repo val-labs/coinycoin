@@ -19,7 +19,7 @@ c1:
 	cp profile/* c1
 	tree c1
 lc1: c1
-	. c1/env.sh start 1234
+	bash -c ". c1/env.sh start 1234"
 sc1:
 	. c1/env.sh stop
 clean:

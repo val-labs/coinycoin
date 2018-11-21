@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 function assign(){  export $1=$2;}
 function start(){
     assign PORT $1 $PORT 4321 ; shift
