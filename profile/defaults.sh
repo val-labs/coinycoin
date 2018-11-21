@@ -1,0 +1,1 @@
+export DIFFICULTY=8

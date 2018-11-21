@@ -1,0 +1,3 @@
+p2p: peer2peer.py serve --port $PORT
+sayhello: python -um sayhello | peer2peer.py pub 127.1:$PORT i.xtn -
+ixtn:     python -um ixtn 127.1:$PORT
