@@ -13,5 +13,5 @@ def make_msg():
 def main():
     time.sleep(3)
     msg = make_msg()
-    sys.stdout.write("$Id: {}\n".format(rmd160hd(msg)))
+    #sys.stdout.write("$Id: {}\n".format(rmd160hd(msg)))
     sys.stdout.write(msg)

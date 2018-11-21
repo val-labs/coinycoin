@@ -24,7 +24,14 @@ sc1:
 	. c1/env.sh stop
 clean:
 	rm -fr c1 he* pid
-	find . -name \*.pyc | xargs rm
+	find . -name \*.pyc -o -name \*~ | xargs rm
 	tree .
 realclean: clean
 	rm -fr .ve?
+dbuild:;docker build -t cc .
+xdock: dbuild
+	docker run  -it -w "$$PWD" -v "$$PWD:$$PWD" --rm --name cc cc make go
+dock: dbuild
+	docker run  -it -w "$$PWD" -v "$$PWD:$$PWD" --rm --name cc cc bash -l
+exec:
+	docker exec -it -w "$$PWD"                                 cc bash -l
