@@ -10,19 +10,18 @@ def validate(idline, msg):
 def save(rmd, whole_msg):
     if not rmd:
         return sys.stderr.write("no way, dropping")
-    fname1 = "t/xtn.{}".format(rmd)
-    fname2 = "n/xtn.{}".format(rmd)
+    fname1 = "t/blk.{}".format(rmd)
+    fname2 = "n/blk.{}".format(rmd)
     with open(fname1, 'w') as f: f.write(whole_msg)
     os.link(fname1, fname2)
     pass
     
 def main():
-    os.system('mkdir -p xtns')
+    os.system('mkdir -p blks')
     time.sleep(0.25)
     ws = peer2peer.conn(sys.argv[1])
-    peer2peer.subscribe(ws, '0 1 2 i.xtn')
+    peer2peer.subscribe(ws, '0 1 2 i.blk')
     while 1:
         msg = peer2peer.recv(ws)
-        if save(validate(*msg[2].split('\n', 1)), msg[2]):
-            peer2peer.publishv([msg[2]],ws,'x.xtn')
+        save(validate(*msg[2].split('\n', 1)), msg[2])
         time.sleep(0.1)

@@ -1,3 +1,5 @@
 p2p: peer2peer.py serve --port $PORT
 sayhello: python -um sayhello >tmp.$$ ; sign -S<tmp.$$ >tmp.$$.m ; cat tmp.$$>>tmp.$$.m ; openssl ripemd160 <tmp.$$.m >tmp.$$.n ; cat tmp.$$.m >>tmp.$$.n; peer2peer.py pub 127.1:$PORT i.xtn tmp.$$.n ; rm tmp.$$*
 ixtn:     python -um ixtn 127.1:$PORT
+iblk:     python -um iblk 127.1:$PORT
+xxtn:     cat n/* >tmp.$$.blk ; mine -b 1024 -d $DIFFICULTY <tmp.$$.blk 1>tmp.$$.blk.1 2>tmp.$$.blk.2; peer2peer.py pub 127.1:$PORT i.blk tmp.$$.blk ; rm tmp.$$*
